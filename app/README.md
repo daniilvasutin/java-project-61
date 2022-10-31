@@ -1,2 +1,3 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/b40fff8ef38451599239/maintainability)](https://codeclimate.com/github/daniilvasutin/java-project-61/maintainability)
-Аскинема - https://asciinema.org/connect/bc397272-4922-4104-8d50-a87b1f87b786
+
+[Аскинема](https://asciinema.org/connect/bc397272-4922-4104-8d50-a87b1f87b786)

@@ -1,4 +1,6 @@
-package hexlet.code;
+package hexlet.code.games;
+
+import hexlet.code.Cli;
 
 import java.util.Scanner;
 
@@ -25,12 +27,12 @@ public class Even {
                     System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
                     break;
                 }
-            } else {
+            } else {//3 no
                 if(userAnswer.equals("no")) {
                     System.out.println("Correct!");
                     correctAnswerCounter++;
                 } else {
-                    System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
+                    System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");//проверить!!!!!!
                     break;
                 }
             }
