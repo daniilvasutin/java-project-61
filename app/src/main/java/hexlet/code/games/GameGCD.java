@@ -8,7 +8,7 @@ public class GameGCD {
     private static final int MIN_VALUE_FOR_RANDOM = 1;
     private static final int MAX_VALUE_FOR_RANDOM = 100;
 
-    public static void createDateForGCD() {
+    public static void inizializeGCDGame() {
         String[][] gameDate = new String[GameEngine.MAX_WINS][2];
         int firstNumber;
         int secondNumber;
@@ -17,23 +17,23 @@ public class GameGCD {
             firstNumber = GameEngine.getRandomNumberInRange(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM);
             secondNumber = GameEngine.getRandomNumberInRange(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM);
 
-            gameDate[i][GameEngine.QUESTION] = "Question: " + firstNumber + " " + secondNumber;
-            gameDate[i][GameEngine.ANSWER] = findeGCD(firstNumber, secondNumber);
+            gameDate[i][GameEngine.QUESTION_POSITION_IN_ARRAY] = "Question: " + firstNumber + " " + secondNumber;
+            gameDate[i][GameEngine.ANSWER_POSITION_IN_ARRAY] = findeGCD(firstNumber, secondNumber);
         }
 
         GameEngine.startEngine(gameDate, GAME_REQUIRE);
     }
 
     private static String findeGCD(int firstNumber, int secondNumber) {
-        int GCD = Math.min(firstNumber, secondNumber);
+        int gcd = Math.min(firstNumber, secondNumber);
 
-        for ( int i = GCD; i >= 1; i--){
-            if (firstNumber % i == 0 && secondNumber % i == 0){
-                GCD = i;
+        for (int i = gcd; i >= 1; i--) {
+            if (firstNumber % i == 0 && secondNumber % i == 0) {
+                gcd = i;
                 break;
             }
         }
 
-        return String.valueOf(GCD);
+        return String.valueOf(gcd);
     }
 }

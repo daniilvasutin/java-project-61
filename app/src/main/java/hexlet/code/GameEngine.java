@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class GameEngine {
 
     public static final int MAX_WINS = 3;
-    public static final int QUESTION = 0;
-    public static final int ANSWER = 1;
+    public static final int QUESTION_POSITION_IN_ARRAY = 0;
+    public static final int ANSWER_POSITION_IN_ARRAY = 1;
     private static int countOfWins = 0;
 
     private static Scanner scanner = new Scanner(System.in);
@@ -31,10 +31,10 @@ public class GameEngine {
         System.out.println(gameRequire);
 
         for (var i = 0; i < MAX_WINS; i++) {
-            System.out.println(gameDate[i][QUESTION]);
+            System.out.println(gameDate[i][QUESTION_POSITION_IN_ARRAY]);
             System.out.print("Your answer: ");
             userAnswer = scanner.next();
-            savedAnswer = gameDate[i][ANSWER];
+            savedAnswer = gameDate[i][ANSWER_POSITION_IN_ARRAY];
 
             if (userAnswer.equals(savedAnswer)) {
                 countOfWins++;

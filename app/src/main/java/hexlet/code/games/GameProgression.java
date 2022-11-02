@@ -27,14 +27,16 @@ public class GameProgression {
             randomIndexForHideNumberInPrograssion = GameEngine.getRandomNumberTo(PROGRASSION_LENGTH);
 
             for (var j = 1; j < PROGRASSION_LENGTH; j++) {
-                prograssionArray[j] = prograssionArray[j-1] + stepOfProgression;
+                prograssionArray[j] = prograssionArray[j - 1] + stepOfProgression;
                 prograssionArrayWithHideNumber[j] = String.valueOf(prograssionArray[j]);
             }
 
             prograssionArrayWithHideNumber[randomIndexForHideNumberInPrograssion] = "..";
 
-            gameDate[i][GameEngine.QUESTION] = "Question: " + Arrays.toString(prograssionArrayWithHideNumber);
-            gameDate[i][GameEngine.ANSWER] = String.valueOf(prograssionArray[randomIndexForHideNumberInPrograssion]);
+            gameDate[i][GameEngine.QUESTION_POSITION_IN_ARRAY] = "Question: "
+                    + Arrays.toString(prograssionArrayWithHideNumber);
+            gameDate[i][GameEngine.ANSWER_POSITION_IN_ARRAY] =
+                    String.valueOf(prograssionArray[randomIndexForHideNumberInPrograssion]);
         }
 
         GameEngine.startEngine(gameDate, GAME_REQUIRE);
