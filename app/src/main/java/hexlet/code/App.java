@@ -17,10 +17,7 @@ public class App {
         final int primeGameButton = 6;
         final int exitButton = 0;
 
-
-        System.out.println("Please enter the game number and press Enter.\n"
-                + "1 - Greet\n"
-                + "2 - Even\n"
+        System.out.println("Please enter the game number and press Enter.\n" + "1 - Greet\n" + "2 - Even\n"
                 + "3 - Calc\n"
                 + "4 - GCD\n"
                 + "5 - Progression\n"
@@ -33,7 +30,6 @@ public class App {
         int selectedGameInt = Integer.parseInt(selectedGame);
         Cli.greeting();
 
-
         switch (selectedGameInt) {
             case greetingButton: break;
             case evenGameButton: GameEven.inizializeEvenGame(); break;
@@ -44,6 +40,5 @@ public class App {
             case exitButton: System.out.println("Byby"); break;
             default: break;
         }
-
     }
 }
