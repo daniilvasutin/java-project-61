@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+
         final int greetingButton = 1;
         final int evenGameButton = 2;
         final int calcGameButton = 3;
