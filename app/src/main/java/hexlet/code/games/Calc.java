@@ -34,7 +34,7 @@ public class Calc {
         Engine.startEngine(gameDate, GAME_REQUIRE);
     }
 
-    private static String[] generateQuestionAnswer(){
+    private static String[] generateQuestionAnswer() {
         int firstNumber = Utils.getRandomNumberTo(MAX_VALUE_FOR_RANDOM);
         int secondNumber = Utils.getRandomNumberTo(MAX_VALUE_FOR_RANDOM);
         char operator = OPERATORS[Utils.getRandomNumberTo(OPERATORS.length)];

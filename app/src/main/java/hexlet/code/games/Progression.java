@@ -13,34 +13,43 @@ public class Progression {
 
     public static void runGameProgression() {
         String[][] gameDate = new String[Engine.MAX_WINS][2];
-        int firstNumberOfProgression;
-        int stepOfProgression;
-        int randomIndexForHideNumberInPrograssion;
-        int[] prograssionArray = new int[PROGRASSION_LENGTH];
-        String[] prograssionArrayWithHideNumber = new String[PROGRASSION_LENGTH];
 
         for (var i = 0; i < Engine.MAX_WINS; i++) {
-            firstNumberOfProgression = Utils.getRandomNumberTo(MAX_START_OF_PROGRASSION);
-            stepOfProgression = Utils.getRandomNumberTo(MAX_VALUE_FOR_RANDOM_STEP);
+            int firstNumberOfProgression = Utils.getRandomNumberTo(MAX_START_OF_PROGRASSION);
+            int stepOfProgression = Utils.getRandomNumberInRange(1, MAX_VALUE_FOR_RANDOM_STEP);
+            int randomIndexForHideNumberInProgression = Utils.getRandomNumberTo(PROGRASSION_LENGTH);
 
-            prograssionArray[0] = firstNumberOfProgression;
-            prograssionArrayWithHideNumber[0] = String.valueOf(firstNumberOfProgression);
-            randomIndexForHideNumberInPrograssion = Utils.getRandomNumberTo(PROGRASSION_LENGTH);
+            int[] progression = generateProgression(firstNumberOfProgression, stepOfProgression, PROGRASSION_LENGTH);
+            String[] progressionArrayWithHideNumber = new String[PROGRASSION_LENGTH];
 
-            for (var j = 1; j < PROGRASSION_LENGTH; j++) {
-                prograssionArray[j] = prograssionArray[j - 1] + stepOfProgression;
-                prograssionArrayWithHideNumber[j] = String.valueOf(prograssionArray[j]);
+            for (var j = 0; j < PROGRASSION_LENGTH; j++) {
+                progressionArrayWithHideNumber[j] = String.valueOf(progression[j]);
             }
 
-            prograssionArrayWithHideNumber[randomIndexForHideNumberInPrograssion] = "..";
+            progressionArrayWithHideNumber[randomIndexForHideNumberInProgression] = "..";
 
             gameDate[i][0] = "Question: "
-                    + Arrays.toString(prograssionArrayWithHideNumber);
+                    + Arrays.toString(progressionArrayWithHideNumber);
             gameDate[i][1] =
-                    String.valueOf(prograssionArray[randomIndexForHideNumberInPrograssion]);
+                    String.valueOf(progression[randomIndexForHideNumberInProgression]);
         }
 
         Engine.startEngine(gameDate, GAME_REQUIRE);
     }
+
+    private static int[] generateProgression(int firstNumberOfProgression,
+                                             int stepOfProgression,
+                                             int progressionLength) {
+        int[] progressionArray = new int[progressionLength];
+        progressionArray[0] = firstNumberOfProgression;
+
+        for (var i = 1; i < PROGRASSION_LENGTH; i++) {
+            progressionArray[i] = progressionArray[i - 1] + stepOfProgression;
+        }
+
+        return progressionArray;
+    }
+
+
 
 }

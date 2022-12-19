@@ -39,6 +39,7 @@ public class App {
             case PROGRESSION_GAME -> Progression.runGameProgression();
             case PRIME_GAME -> Prime.runGamePrime();
             case EXIT -> System.out.println("Byby");
+            default -> throw new IllegalStateException("Unexpected value: " + selectedGame);
         }
     }
 }

@@ -7,11 +7,7 @@ public class Even {
     public static final String GAME_REQUIRE = "Answer 'yes' if the number is even, otherwise answer 'no'";
 
     public static boolean isEven(int randomNumber) {
-        if (randomNumber % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return randomNumber % 2 == 0 ? true : false;
     }
 
     public static void runGameEven() {
