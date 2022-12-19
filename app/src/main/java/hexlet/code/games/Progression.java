@@ -1,30 +1,31 @@
 package hexlet.code.games;
 
-import hexlet.code.GameEngine;
+import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.Arrays;
 
-public class GameProgression {
+public class Progression {
     public static final String GAME_REQUIRE = "What number is missing in the progression?";
     private static final int MAX_START_OF_PROGRASSION = 100;
     private static final int MAX_VALUE_FOR_RANDOM_STEP = 10;
     private static final int PROGRASSION_LENGTH = 10;
 
-    public static void initializeProgressionGame() {
-        String[][] gameDate = new String[GameEngine.MAX_WINS][2];
+    public static void runGameProgression() {
+        String[][] gameDate = new String[Engine.MAX_WINS][2];
         int firstNumberOfProgression;
         int stepOfProgression;
         int randomIndexForHideNumberInPrograssion;
         int[] prograssionArray = new int[PROGRASSION_LENGTH];
         String[] prograssionArrayWithHideNumber = new String[PROGRASSION_LENGTH];
 
-        for (var i = 0; i < GameEngine.MAX_WINS; i++) {
-            firstNumberOfProgression = GameEngine.getRandomNumberTo(MAX_START_OF_PROGRASSION);
-            stepOfProgression = GameEngine.getRandomNumberTo(MAX_VALUE_FOR_RANDOM_STEP);
+        for (var i = 0; i < Engine.MAX_WINS; i++) {
+            firstNumberOfProgression = Utils.getRandomNumberTo(MAX_START_OF_PROGRASSION);
+            stepOfProgression = Utils.getRandomNumberTo(MAX_VALUE_FOR_RANDOM_STEP);
 
             prograssionArray[0] = firstNumberOfProgression;
             prograssionArrayWithHideNumber[0] = String.valueOf(firstNumberOfProgression);
-            randomIndexForHideNumberInPrograssion = GameEngine.getRandomNumberTo(PROGRASSION_LENGTH);
+            randomIndexForHideNumberInPrograssion = Utils.getRandomNumberTo(PROGRASSION_LENGTH);
 
             for (var j = 1; j < PROGRASSION_LENGTH; j++) {
                 prograssionArray[j] = prograssionArray[j - 1] + stepOfProgression;
@@ -33,12 +34,13 @@ public class GameProgression {
 
             prograssionArrayWithHideNumber[randomIndexForHideNumberInPrograssion] = "..";
 
-            gameDate[i][GameEngine.QUESTION_POSITION_IN_ARRAY] = "Question: "
+            gameDate[i][0] = "Question: "
                     + Arrays.toString(prograssionArrayWithHideNumber);
-            gameDate[i][GameEngine.ANSWER_POSITION_IN_ARRAY] =
+            gameDate[i][1] =
                     String.valueOf(prograssionArray[randomIndexForHideNumberInPrograssion]);
         }
 
-        GameEngine.startEngine(gameDate, GAME_REQUIRE);
+        Engine.startEngine(gameDate, GAME_REQUIRE);
     }
+
 }
