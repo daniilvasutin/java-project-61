@@ -9,7 +9,7 @@ public class Progression {
     public static final String GAME_REQUIRE = "What number is missing in the progression?";
     private static final int MAX_START_OF_PROGRASSION = 100;
     private static final int MAX_VALUE_FOR_RANDOM_STEP = 10;
-    private static final int PROGRASSION_LENGTH = 5;
+    private static final int PROGRASSION_LENGTH = 10;
 
     public static void runGameProgression() {
         String[][] gameDate = new String[Engine.MAX_WINS][2];
@@ -29,7 +29,10 @@ public class Progression {
             progressionArrayWithHideNumber[randomIndexForHideNumberInProgression] = "..";
 
             gameDate[i][0] = "Question: "
-                    + Arrays.toString(progressionArrayWithHideNumber);
+                    + Arrays.toString(progressionArrayWithHideNumber)
+                    .replaceAll("\\[", "")
+                    .replaceAll("\\]", "")
+                    .replaceAll(",", "");
             gameDate[i][1] =
                     String.valueOf(progression[randomIndexForHideNumberInProgression]);
         }
