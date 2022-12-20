@@ -22,10 +22,10 @@ public class Engine {
                 System.out.println("Correct!");
             } else {
                 System.out.println(userAnswer + " is wrong answer ;(. Correct answer was " + savedAnswer + ".");
-                System.out.println("Let's try again, " + Cli.userName + "!");
+                System.out.println("Let's try again, " + Cli.getUserName() + "!");
                 return;
             }
         }
-        System.out.println("Congratulations, " + Cli.userName + "!");
+        System.out.println("Congratulations, " + Cli.getUserName() + "!");
     }
 }
