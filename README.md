@@ -1,5 +1,8 @@
 ### Hexlet tests and linter status:
-[![Maintainability](https://api.codeclimate.com/v1/badges/b40fff8ef38451599239/maintainability)](https://codeclimate.com/github/daniilvasutin/java-project-61/maintainability)</br></br>
+
+![Java CI](https://github.com/hexlet-boilerplates/java-package/workflows/Java%20CI/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/b40fff8ef38451599239/maintainability)](https://codeclimate.com/github/daniilvasutin/java-project-61/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/bc953fb0ab378995dab3/test_coverage)](https://codeclimate.com/github/hexlet-boilerplates/java-package/test_coverage)</br></br>
 
 First project of the hexlet course. Named "Mind game". The user is given a choice of several logical and mathematical games. Each game consists of three rounds. If the user answers correctly in each round, he becomes the winner and can take it again.</br>
 
