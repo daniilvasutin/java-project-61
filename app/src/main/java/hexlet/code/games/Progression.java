@@ -12,7 +12,7 @@ public class Progression {
     private static final int PROGRASSION_LENGTH = 10;
 
     public static void runGameProgression() {
-        String[][] gameDate = new String[Engine.MAX_WINS][2];
+        String[][] gameData = new String[Engine.MAX_WINS][2];
 
         for (var i = 0; i < Engine.MAX_WINS; i++) {
             int firstNumberOfProgression = Utils.getRandomNumberTo(MAX_START_OF_PROGRASSION);
@@ -20,24 +20,20 @@ public class Progression {
             int randomIndexForHideNumberInProgression = Utils.getRandomNumberTo(PROGRASSION_LENGTH);
 
             int[] progression = generateProgression(firstNumberOfProgression, stepOfProgression, PROGRASSION_LENGTH);
-            String[] progressionArrayWithHideNumber = new String[PROGRASSION_LENGTH];
 
+            String[] progressionArrayWithHideNumber = new String[PROGRASSION_LENGTH];
             for (var j = 0; j < PROGRASSION_LENGTH; j++) {
                 progressionArrayWithHideNumber[j] = String.valueOf(progression[j]);
             }
-
             progressionArrayWithHideNumber[randomIndexForHideNumberInProgression] = "..";
 
-            gameDate[i][0] = "Question: "
-                    + Arrays.toString(progressionArrayWithHideNumber)
-                    .replaceAll("\\[", "")
-                    .replaceAll("\\]", "")
-                    .replaceAll(",", "");
-            gameDate[i][1] =
+            gameData[i][0] = Engine.question()
+                    + Arrays.toString(progressionArrayWithHideNumber).replaceAll("[\\[,\\]]", "");
+            gameData[i][1] =
                     String.valueOf(progression[randomIndexForHideNumberInProgression]);
         }
 
-        Engine.startEngine(gameDate, GAME_REQUIRE);
+        Engine.startEngine(gameData, GAME_REQUIRE);
     }
 
     private static int[] generateProgression(int firstNumberOfProgression,
@@ -46,7 +42,7 @@ public class Progression {
         int[] progressionArray = new int[progressionLength];
         progressionArray[0] = firstNumberOfProgression;
 
-        for (var i = 1; i < PROGRASSION_LENGTH; i++) {
+        for (var i = 1; i < progressionLength; i++) {
             progressionArray[i] = progressionArray[i - 1] + stepOfProgression;
         }
 

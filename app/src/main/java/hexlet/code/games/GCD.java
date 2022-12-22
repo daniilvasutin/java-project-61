@@ -18,7 +18,7 @@ public class GCD {
             firstNumber = Utils.getRandomNumberInRange(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM);
             secondNumber = Utils.getRandomNumberInRange(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM);
 
-            gameDate[i][0] = "Question: " + firstNumber + " " + secondNumber;
+            gameDate[i][0] = Engine.question() + firstNumber + " " + secondNumber;
             gameDate[i][1] = String.valueOf(findGCD(firstNumber, secondNumber));
         }
 

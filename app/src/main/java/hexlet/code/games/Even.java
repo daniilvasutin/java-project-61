@@ -17,7 +17,8 @@ public class Even {
         for (var i = 0; i < Engine.MAX_WINS; i++) {
             randomNumber = Utils.getRandomNumberTo(MAX_RANGE_OF_RANDOM);
 
-            gameDate[i][0] = "Question: " + randomNumber;
+            gameDate[i][0] =
+                    Engine.question() + randomNumber;
             gameDate[i][1] = isEven(randomNumber) ? "yes" : "no";
         }
 

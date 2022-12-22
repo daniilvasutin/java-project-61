@@ -11,7 +11,7 @@ public class Calc {
     public static final String GAME_REQUIRE = "What is the result of the expression?";
 
 
-    public static int calculate(int firstNumber, int secondNumber, char operator) {
+    private static int calculate(int firstNumber, int secondNumber, char operator) {
 
         return switch (operator) {
             case '+' -> firstNumber + secondNumber;
@@ -22,16 +22,16 @@ public class Calc {
     }
 
     public static void runGameCalc() {
-        String[][] gameDate = new String[Engine.MAX_WINS][2];
+        String[][] gameData = new String[Engine.MAX_WINS][2];
 
         for (var i = 0; i < Engine.MAX_WINS; i++) {
 
             String[] questionAnswer = generateQuestionAnswer();
-            gameDate[i][0] = questionAnswer[0];
-            gameDate[i][1] = questionAnswer[1];
+            gameData[i][0] = questionAnswer[0];
+            gameData[i][1] = questionAnswer[1];
         }
 
-        Engine.startEngine(gameDate, GAME_REQUIRE);
+        Engine.startEngine(gameData, GAME_REQUIRE);
     }
 
     private static String[] generateQuestionAnswer() {
@@ -40,7 +40,7 @@ public class Calc {
         char operator = OPERATORS[Utils.getRandomNumberTo(OPERATORS.length)];
 
         String[] questionAnswer = new String[2];
-        questionAnswer[0] = "Question: "
+        questionAnswer[0] = Engine.question()
                 + firstNumber + " "
                 + operator + " "
                 + secondNumber;

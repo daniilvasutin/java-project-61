@@ -16,7 +16,7 @@ public class Prime {
         for (var i = 0; i < Engine.MAX_WINS; i++) {
             randomNumber = Utils.getRandomNumberInRange(MIN_VALUE_FOR_RANDOM, MAX_VALUE_FOR_RANDOM);
 
-            gameDate[i][0] = "Question: " + randomNumber;
+            gameDate[i][0] = Engine.question() + randomNumber;
             gameDate[i][1] = isPrime(randomNumber) ? "yes" : "no";
         }
 
