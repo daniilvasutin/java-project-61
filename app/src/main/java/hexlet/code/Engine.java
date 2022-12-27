@@ -8,11 +8,16 @@ public class Engine {
 
     public static void startEngine(String[][] gameData, String description) {
 
-        Cli.greeting();
+        System.out.print("Welcome to the Brain Games!\n");
         Scanner scanner = new Scanner(System.in);
+        System.out.print("May I have your name? ");
+        String userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
+
         System.out.println(description);
 
         for (var i = 0; i < gameData.length; i++) {
+            //System.out.println(showQuestion(gameData[i][0]));
             System.out.println(gameData[i][0]);
             System.out.print("Your answer: ");
             String userAnswer = scanner.next();
@@ -22,14 +27,18 @@ public class Engine {
                 System.out.println("Correct!");
             } else {
                 System.out.println(userAnswer + " is wrong answer ;(. Correct answer was " + savedAnswer + ".");
-                System.out.println("Let's try again, " + Cli.getUserName() + "!");
+                System.out.println("Let's try again, " + userName + "!");
                 return;
             }
         }
-        System.out.println("Congratulations, " + Cli.getUserName() + "!");
+        System.out.println("Congratulations, " + userName + "!");
     }
 
     public static String question() {
         return "Question: ";
     }
+
+/*    private static String showQuestion(String gameData) {
+        return "";
+    }*/
 }

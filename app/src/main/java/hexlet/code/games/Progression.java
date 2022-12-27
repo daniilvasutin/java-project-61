@@ -21,14 +21,14 @@ public class Progression {
 
             int[] progression = generateProgression(firstNumberOfProgression, stepOfProgression, PROGRASSION_LENGTH);
 
-            String[] progressionArrayWithHideNumber = new String[PROGRASSION_LENGTH];
+            String[] progressionWithHideNumber = new String[PROGRASSION_LENGTH];
             for (var j = 0; j < PROGRASSION_LENGTH; j++) {
-                progressionArrayWithHideNumber[j] = String.valueOf(progression[j]);
+                progressionWithHideNumber[j] = String.valueOf(progression[j]);
             }
-            progressionArrayWithHideNumber[randomIndexForHideNumberInProgression] = "..";
+            progressionWithHideNumber[randomIndexForHideNumberInProgression] = "..";
 
             gameData[i][0] = Engine.question()
-                    + Arrays.toString(progressionArrayWithHideNumber).replaceAll("[\\[,\\]]", "");
+                    + Arrays.toString(progressionWithHideNumber).replaceAll("[\\[,\\]]", "");
             gameData[i][1] =
                     String.valueOf(progression[randomIndexForHideNumberInProgression]);
         }

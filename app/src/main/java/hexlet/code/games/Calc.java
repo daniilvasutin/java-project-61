@@ -39,6 +39,9 @@ public class Calc {
         int secondNumber = Utils.getRandomNumberTo(MAX_VALUE_FOR_RANDOM);
         char operator = OPERATORS[Utils.getRandomNumberTo(OPERATORS.length)];
 
+        //Передавайте только сами данные для вопроса,
+        //а форматировать вопрос нужно уже в движке
+
         String[] questionAnswer = new String[2];
         questionAnswer[0] = Engine.question()
                 + firstNumber + " "

@@ -27,6 +27,8 @@ public class Prime {
     private static boolean isPrime(int number) {
         boolean checkStr = true;
 
+        if (number <= 1) { return false; }
+
         for (var i = 2; i < number; i++) {
             if (number % i == 0) {
                 checkStr = false;
